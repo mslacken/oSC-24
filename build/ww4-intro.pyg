@@ -1,0 +1,14 @@
+Warewulf Node:      {{.Id}}
+Container:          {{.Container}}
+{{ if .Kernel.Version }}Kernel:             {{.Kernel.Version}} {{ end -}}
+Kernelargs:         {{.Kernel.Args}}
+
+Network:
+{{- range $devname, $netdev := .NetDevs}}
+    {{$devname}}: {{$netdev.Device}}
+    {{$devname}}: {{$netdev.IpCIDR}}
+{{if $netdev.Ipaddr6 }}    {{$devname}}: {{$netdev.Ipaddr6}}{{ end -}}
+{{if $netdev.Hwaddr }}    {{$devname}}: {{$netdev.Hwaddr}}{{ end -}}
+{{end}}
+
+Greetings from {{ .Tags.Location }}

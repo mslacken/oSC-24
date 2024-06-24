@@ -1,0 +1,82 @@
+% Copyright (c) 2017 SUSE LINUX GmbH, Nuernberg, Germany.
+%
+% All modifications and additions to the file contributed by third parties
+% remain the property of their copyright owners, unless otherwise agreed
+% upon. The license for this file, and modifications and additions to the
+% file, is the same license as for the pristine package itself (unless the
+% license for the pristine package is not an Open Source License, in which
+% case the license is the MIT License). An "Open Source License" is a
+% license that conforms to the Open Source Definition (Version 1.9)
+% published by the Open Source Initiative.
+\NeedsTeXFormat{LaTeX2e}[2005/12/01]
+
+\mode<presentation>
+
+\usecolortheme{chameleon}
+
+\setbeamersize{sidebar width right=.5cm}
+\setbeamersize{sidebar width left=.5cm}
+
+%\addtobeamertemplate{background}{%
+%      \includegraphics{sidebar_green_struct}
+%    }
+
+{\usebeamercolor{sidebar}}
+\setbeamertemplate{sidebar canvas right}[bg=darkblue]
+
+%	\begin{picture}(0,0)
+\addtobeamertemplate{background}{%
+ \includegraphics[height=\paperheight,width=\paperwidth]{oSC22-back}
+}
+%\setbeamertemplate{sidebar canvas left}[horizontal shading]
+%[left=white,middle=sidebar.bg,right=darkblue]
+
+%\useoutertheme[height=0pt]{sidebar}
+
+\setbeamercolor{sidebar}{parent=palette primary}
+
+{\usebeamercolor{palette primary}}
+% Title page
+\setbeamertemplate{title page}
+{ 
+%	\begin{picture}(0,0)
+%	%\addtobeamertemplate{background}{%
+%		\includegraphics{bg-title}
+%	%}
+%	\vskip4.0cm%
+%	\usebeamerfont{title}\inserttitle\par%
+%	\vskip0.75cm%
+%	\usebeamerfont{author}\insertauthor%
+%	\vskip0.2cm%
+%	\usebeamerfont{author}\insertdate%
+%	\vfill
+%	\end{picture}
+\pgfdeclareimage[height=\paperheight,width=\paperwidth]{mybackground}{oSC22-title}
+\begin{picture}(0,0)
+
+  \put(-45,-160){%
+            \pgfuseimage{mybackground}
+            }
+            %\put(-20,-80){%
+            %\includegraphics[width=2cm]{chameleon-white}
+            %}
+
+            \put(-45,-50) {
+                    \usebeamercolor[fg]{title}
+                    \usebeamerfont{title}{openSUSE Conference}
+            }
+            \put(120,-120){%
+                \begin{minipage}[b][50mm][t]{160mm}
+                    \usebeamercolor[fg]{title}
+                    \usebeamerfont{title}{\inserttitle\par}
+		    \vskip0.75cm%
+		    \usebeamerfont{author}\insertauthor%
+	            \vskip0.2cm%
+	            \usebeamerfont{date}\insertdate%
+                \end{minipage}
+            }
+            \end{picture}
+
+}
+\mode
+<all>
